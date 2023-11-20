@@ -21,7 +21,6 @@ class Item
   private
 
   def can_be_archived?
-    return Date.today.year - @publish_date.year > 10
+    Date.today.year - @publish_date.year > 10
   end
-
 end
