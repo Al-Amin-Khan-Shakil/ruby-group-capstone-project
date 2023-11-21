@@ -4,10 +4,10 @@ class Label
   attr_accessor :title, :string
   attr_reader :private_id, :private_items
 
-  def initialize(title, string)
+  def initialize(title, color)
     @private_id = SecureRandom.uuid
     @title = title
-    @string = string
+    @color = color
     @private_items = []
   end
 

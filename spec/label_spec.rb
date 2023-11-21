@@ -4,14 +4,14 @@ require 'securerandom'
 
 describe Label do
   let(:title) { 'A title' }
-  let(:string) { 'A string' }
+  let(:color) { 'A color' }
 
   context 'When testing the Label class' do
-    let(:label) { described_class.new(title, string) }
+    let(:label) { described_class.new(title, color) }
 
     it 'should initialize correctly' do
       expect(label.title).to eq(title)
-      expect(label.string).to eq(string)
+      expect(label.color).to eq(color)
       expect(label.private_items).to be_empty
     end
 
