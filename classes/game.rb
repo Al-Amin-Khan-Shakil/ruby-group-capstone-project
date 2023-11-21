@@ -1,3 +1,4 @@
+require 'active_support/all'
 require '../classes/author'
 class Game < Item
   attr_reader :multiplayer, :last_played_at
