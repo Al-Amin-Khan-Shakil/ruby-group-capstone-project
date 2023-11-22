@@ -26,6 +26,8 @@ def actions(input_number, app)
     app.list_labels
   when 7
     app.add_new_book
+  when 9
+    app.add_game
   else
     puts 'Invalid option, try again'
   end
