@@ -1,16 +1,18 @@
 require 'active_support/all'
 require '../classes/author'
+
 class Game < Item
   attr_reader :multiplayer, :last_played_at
 
-  def initialize(publish_date, multiplayer, last_played_at)
-    super(publish_date)
+  def initialize(multiplayer:, last_played_at:, publish_date: nil, archived: false)
+    super(publish_date: publish_date, archived: archived)
     @multiplayer = multiplayer
     @last_played_at = last_played_at
   end
 
+  private
+
   def can_be_archived?
-    now = Date.today
-    (now.year - @last_played_at.year).to_i > 2
+    super && ((Time.now.year - @last_played_at.year) > 2)
   end
 end
