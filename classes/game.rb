@@ -11,6 +11,6 @@ class Game < Item
 
   def can_be_archived?
     now = Date.today
-    (now.year - @last_played_at.year).to_i
+    (now.year - @last_played_at.year).to_i > 2
   end
 end
