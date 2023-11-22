@@ -1,8 +1,9 @@
 require_relative 'classes/book'
+require_relative 'data_manager'
 
 class App
   def initialize
-    @books = []
+    @books = DataManager.load_books
     @labels = []
   end
 
@@ -37,6 +38,7 @@ class App
     cover_state = gets.chomp
     new_book = Book.new(publish_date, publisher, cover_state)
     @books << new_book
+    DataManager.save_book(@books)
     puts 'Book added successfully'
   end
 end
