@@ -1,18 +1,20 @@
 require 'securerandom'
+require_relative 'item'
+require 'date'
 
 class Label
   attr_accessor :title, :string
-  attr_reader :private_id, :private_items
+  attr_reader :id, :items
 
   def initialize(title, color)
-    @private_id = SecureRandom.uuid
+    @id = SecureRandom.uuid
     @title = title
     @color = color
-    @private_items = []
+    @items = []
   end
 
   def add_item(item)
-    @private_items << item
-    item.label << self
+    @items << item
+    item.label = self
   end
 end

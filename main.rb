@@ -1,23 +1,22 @@
 require_relative 'app'
 
 def main
-  App.new
-  prompt
+  app = App.new
+  prompt(app)
 end
 
-def prompt
+def prompt(app)
   puts 'Catelogue of things!'
   loop do
     display_options
     input_number = gets.chomp.to_i
     break if input_number == 10
 
-    actions(input_number)
+    actions(input_number, app)
   end
 end
 
-def actions(input_number)
-  app = App.new
+def actions(input_number, app)
   case input_number
   when 1
     app.list_books
