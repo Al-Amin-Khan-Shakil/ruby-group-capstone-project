@@ -12,15 +12,15 @@ describe Label do
     it 'should initialize correctly' do
       expect(label.title).to eq(title)
       expect(label.color).to eq(color)
-      expect(label.private_items).to be_empty
+      expect(label.items).to be_empty
     end
 
     it 'should add item to private items array' do
       item = Item.new
       label.add_item(item)
 
-      expect(label.private_items).to include(item)
-      expect(item.label).to include(label)
+      expect(label.items).to include(item)
+      expect(item.label).to eq(label)
     end
   end
 end

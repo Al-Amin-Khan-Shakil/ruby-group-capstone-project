@@ -2,7 +2,7 @@ require 'securerandom'
 require_relative 'item'
 
 class Label
-  attr_accessor :title, :string
+  attr_accessor :title, :color
   attr_reader :id, :items
 
   def initialize(title, color)
