@@ -18,13 +18,13 @@ module GameModule
 
   def add_game()
     puts "\nAdd a game:"
-    print 'Publish date [YYYY-MM-DD]: '
-    publish_date = validate_date(gets.chomp)
+    puts 'Published date (dd/mm/yy): '
+    publish_date = Date.parse(gets.chomp)
     print 'Multiplayer [Y/N]: '
     multiplayer = gets.chomp.downcase == 'y'
-    print 'Last played at [YYYY-MM-DD]: '
-    last_played_at = validate_date(gets.chomp)
-    game = Game.new(publish_date, multiplayer, last_played_at)
+    print 'Last played at (dd/mm/yy): '
+    last_played_at = Date.parse(gets.chomp)
+    game = Game.new(publish_date: publish_date, multiplayer: multiplayer, last_played_at: last_played_at)
     author = game_author
     author.add_item(game)
     @games << game
