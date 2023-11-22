@@ -12,5 +12,4 @@ class Author
     @items << item
     item.author << self
   end
-
 end
