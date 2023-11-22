@@ -1,6 +1,5 @@
 require 'securerandom'
 require_relative 'item'
-require 'date'
 
 class Label
   attr_accessor :title, :string
