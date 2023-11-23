@@ -7,8 +7,8 @@ RSpec.describe Author do
   let(:item) { Item.new(publish_date: Date.new(2020, 1, 1)) }
 
   it 'initializes with correct first and last name' do
-    expect(author.first_name).to eq('Jane')
-    expect(author.last_name).to eq('Austen')
+    expect(author.first_name).to eq('Stephen')
+    expect(author.last_name).to eq('King')
   end
 
   it 'adds item to author items' do
