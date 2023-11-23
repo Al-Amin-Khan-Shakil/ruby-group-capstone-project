@@ -12,9 +12,9 @@ describe Movie do
     end
   end
 
-  describe '#publish_date' do
+  describe '#release_date' do
     it 'return the date which the movie was publish at' do
-      expect(@movie.publish_date).to eq('2001-10-25')
+      expect(@movie.release_date).to eq('2001-10-25')
     end
   end
 
@@ -24,9 +24,9 @@ describe Movie do
     end
   end
 
-  describe '#can_be_archieved?' do
+  describe '#can_be_archived?' do
     it 'return true if it is more than 10 year passed since publishing, otherwise false' do
-      expect(@movie.can_be_archieved?).to be_truthy
+      expect(@movie.can_be_archived).to be_truthy
       Movie.new('2021/09/03', true, '2021/11/12')
     end
   end

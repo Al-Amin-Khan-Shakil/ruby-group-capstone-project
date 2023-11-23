@@ -47,11 +47,11 @@ end
 # start of add_movie
 def add_movie
   puts 'Please add a new Movie'
-  print 'Add the publish date of your Movie [yyyy/mm/dd] : '
-  publish_date = gets.chomp
+  print 'Add the release_date of your Movie [yyyy/mm/dd] : '
+  release_date = gets.chomp
   print 'Last, a movie was watch [yyyy/mm/dd]'
   last_time = gets.chomp
-  new_movie = Movie.new(silet, publish_date, last_time)
+  new_movie = Movie.new(silet, release_date, last_time)
   @movie << new_movie
   puts 'Movie is added successfully'
 end
@@ -61,7 +61,7 @@ def list_movies
   puts 'No movie added' if @movies.empty?
   @games.each_with_index do |movie, index|
     print "Movie #{index + 1} - "
-    print "Publish Date: #{movie.publish_date},"
+    print "release_date: #{movie.release_date},"
     print "Last Played at: #{movie.last_time_at}\n"
   end
 end
@@ -81,7 +81,7 @@ def save_movies
   File.open('data/movie.json', 'w') do |file|
     data = @movies.map do |movie|
       {
-        'publish_date' => movie.publish_date,
+        'release_date' => movie.release_date
         'last_watched_at' => movie.last_watched_at
       }
     end
@@ -93,7 +93,7 @@ end
 def load_movie
   if File.exit?('data/movie.json')
     data = JSON.parse(File.read('data/movie.json'))
-    @movies = data.map { |movie| Movie.new(movie['publish_data'], movie['last_played_at']) }
+    @movies = data.map { |movie| Movie.new(movie['release_date'], movie['last_played_at']) }
   else
     []
   end
