@@ -24,7 +24,7 @@ class Item
     @source = source
     source.items << self unless source.items.include?(self)
   end
-  
+
   private
 
   def can_be_archived?
