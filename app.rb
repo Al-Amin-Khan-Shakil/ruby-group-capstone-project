@@ -1,11 +1,25 @@
 require_relative 'classes/book'
 require_relative 'classes/label'
 require_relative 'data_manager'
+require_relative 'classes/game'
+require_relative 'classes/author'
+require './modules/author_module'
+require './modules/game_module'
+require './modules/storage'
+require 'json'
 
 class App
+  include GameModule
+  include AuthorModule
+  include StorageModule
+  attr_reader :labels, :games, :authors
+  
   def initialize
     @books = DataManager.load_books
     @labels = DataManager.load_labels
+    prep_for_storage
+    @games = load_games
+    @authors = load_authors
   end
 
   def list_books
@@ -50,5 +64,15 @@ class App
     DataManager.save_book(@books)
     DataManager.save_label(@labels)
     puts 'Book added successfully'
+  end
+  
+  def prep_for_storage
+    create_file('games')
+    create_file('authors')
+  end
+  
+  def save_data
+    save_to_file(@games.map(&:to_hash), 'games')
+    save_to_file(@authors.map(&:to_hash), 'authors')
   end
 end

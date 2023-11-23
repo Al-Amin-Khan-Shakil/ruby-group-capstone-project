@@ -3,7 +3,7 @@ require 'date'
 
 class Item
   attr_accessor :publish_date
-  attr_reader :id, :archived, :label
+  attr_reader :id, :archived, :label, :author
 
   def initialize(publish_date: nil, archived: false)
     @id = SecureRandom.uuid
@@ -16,6 +16,11 @@ class Item
     label.items << self unless label.items.include?(self)
   end
 
+  def author=(author)
+    @author = author
+    author.items << self unless author.items.include?(self)
+  end
+
   def move_to_archive
     @archived = true if can_be_archived?
   end
@@ -24,5 +29,15 @@ class Item
 
   def can_be_archived?
     Date.today.year - @publish_date.year > 10
+  end
+
+  def to_hash
+    {
+      id: @id,
+      author: @author,
+      publish_date: @publish_date,
+      label: @label,
+      archived: @archived
+    }
   end
 end
