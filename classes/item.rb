@@ -3,7 +3,7 @@ require 'date'
 
 class Item
   attr_accessor :publish_date
-  attr_reader :id, :archived, :label, :author, :genre, source
+  attr_reader :id, :archived, :label, :author, :genre, :source
 
   def initialize(publish_date: nil, archived: false)
     @id = SecureRandom.uuid
