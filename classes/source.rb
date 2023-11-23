@@ -1,9 +1,9 @@
 require 'securerandom'
 require_relative 'item'
 
-class Label
+class Source
   attr_accessor :name
-  attr_reader :id
+  attr_reader :id, :items
 
   def initialize(name)
     @id = SecureRandom.uuid
@@ -13,6 +13,6 @@ class Label
 
   def add_item(item)
     @items << item
-    item.label = self
+    item.source = self
   end
 end

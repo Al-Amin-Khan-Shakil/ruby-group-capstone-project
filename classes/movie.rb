@@ -2,7 +2,7 @@ require_relative 'item'
 require 'date'
 
 class Movie < Item
-  attr_reader :silet
+  attr_reader :silet, :publish_date
 
   def initialize(silet, publish_date)
     super(publish_date: publish_date)
