@@ -24,6 +24,8 @@ def actions(input_number, app)
     app.list_games
   when 5
     app.list_labels
+  when 6
+    app.list_authors
   when 7
     app.add_new_book
   when 9
