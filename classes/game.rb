@@ -1,4 +1,3 @@
-require 'active_support/all'
 require './classes/author'
 require './classes/item'
 require_relative '../modules/storage'

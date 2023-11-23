@@ -13,7 +13,7 @@ class App
   include AuthorModule
   include StorageModule
   attr_reader :labels, :games, :authors
-  
+
   def initialize
     @books = DataManager.load_books
     @labels = DataManager.load_labels
@@ -65,12 +65,12 @@ class App
     DataManager.save_label(@labels)
     puts 'Book added successfully'
   end
-  
+
   def prep_for_storage
     create_file('games')
     create_file('authors')
   end
-  
+
   def save_data
     save_to_file(@games.map(&:to_hash), 'games')
     save_to_file(@authors.map(&:to_hash), 'authors')
