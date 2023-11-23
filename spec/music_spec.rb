@@ -4,7 +4,7 @@ require_relative '../classes/item'
 
 describe MusicAlbum do
   let(:genre) { Genre.new('Rock') }
-  
+
   let(:music_album) do
     MusicAlbum.new(
       on_spotify: true,

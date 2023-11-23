@@ -8,8 +8,8 @@ class App
   def initialize
     @books = DataManager.load_books
     @labels = DataManager.load_labels
-    @album = []
-    @genre = []
+    @album = DataManager.load_album
+    @genre = DataManager.load_genre
   end
 
   def list_books
@@ -84,13 +84,13 @@ class App
     on_spotify = gets.chomp.downcase == 'y'
     puts 'Enter a genre:'
     genre = gets.chomp
-    new_album = MusicAlbum.new(on_spotify:on_spotify, publish_date:album_date)
+    new_album = MusicAlbum.new(on_spotify: on_spotify, publish_date: album_date)
     new_genre = Genre.new(genre)
     new_genre.add_item(new_album)
     @album << new_album
     @genre << new_genre
-
+    DataManager.save_album(@album)
+    DataManager.save_genre(@genre)
     puts 'Album added successfully'
   end
-
 end
