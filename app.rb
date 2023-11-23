@@ -6,6 +6,8 @@ class App
   def initialize
     @books = DataManager.load_books
     @labels = DataManager.load_labels
+    @album = []
+    @genre = []
   end
 
   def list_books
@@ -50,4 +52,25 @@ class App
     DataManager.save_label(@labels)
     puts 'Book added successfully'
   end
+
+  def list_album
+    if @album.empty?
+      puts 'There are no albums saved currently'
+    else
+      @album.each_with_index do |album, index|
+        puts "#{index}. Album: #{album}"
+      end
+    end
+    puts
+  end
+
+  def add_new_album
+    puts 'Album name: '
+    album = gets.chomp
+    new_album = MusicAlbum.new(album)
+    new_album.add_item(new_album)
+    @album << new_album
+    puts 'Album added successfully'
+  end
+
 end

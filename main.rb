@@ -20,10 +20,14 @@ def actions(input_number, app)
   case input_number
   when 1
     app.list_books
+  when 2
+    app.list_album
   when 5
     app.list_labels
   when 7
     app.add_new_book
+  when 8
+    app.add_new_album
   else
     puts 'Invalid option, try again'
   end
