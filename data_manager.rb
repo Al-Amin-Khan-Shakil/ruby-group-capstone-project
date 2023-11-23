@@ -69,7 +69,7 @@ class DataManager
   def self.load_album
     if File.exist?('./data/album.json')
       JSON.parse(File.read('./data/album.json')).map do |album|
-      MusicAlbum.new(album['on_spotify'], album['publish_date'])
+        MusicAlbum.new(album['on_spotify'], album['publish_date'])
       end
     else
       File.write('./data/album.json', JSON.dump([]))

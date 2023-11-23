@@ -15,8 +15,12 @@ def prompt(app)
       puts "\e[31mThank you for using this app! ♥️ \e[0m"
       break
     end
-
-    actions(input_number, app)
+    if input_number < 7
+      actions(input_number, app)
+    else
+      input_number > 6
+      actions2(input_number, app)
+    end
   end
 end
 
@@ -34,6 +38,13 @@ def actions(input_number, app)
     app.list_labels
   when 6
     app.list_authors
+  else
+    puts 'Invalid option, try again'
+  end
+end
+
+def actions2(input_number, app)
+  case input_number
   when 7
     app.add_new_book
   when 8

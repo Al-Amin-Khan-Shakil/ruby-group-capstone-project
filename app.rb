@@ -69,7 +69,7 @@ class App
     DataManager.save_label(@labels)
     puts 'Book added successfully'
   end
-  
+
   def list_album
     if @album.empty?
       puts 'There are no albums saved currently'
@@ -99,7 +99,7 @@ class App
     on_spotify = gets.chomp.downcase == 'y'
     puts 'Enter a genre:'
     genre = gets.chomp
-    new_album = MusicAlbum.new(on_spotify: on_spotify, publish_date: album_date)
+    new_album = MusicAlbum.new(on_spotify, album_date)
     new_genre = Genre.new(genre)
     new_genre.add_item(new_album)
     @album << new_album
@@ -108,11 +108,12 @@ class App
     DataManager.save_genre(@genre)
     puts 'Album added successfully'
   end
+
   def prep_for_storage
     create_file('games')
     create_file('authors')
   end
-    
+
   def save_data
     save_to_file(@games.map(&:to_hash), 'games')
     save_to_file(@authors.map(&:to_hash), 'authors')

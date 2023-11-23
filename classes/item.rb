@@ -20,7 +20,7 @@ class Item
     @genre = genre
     genre.items << self unless genre.items.include?(self)
   end
-  
+
   def author=(author)
     @author = author
     author.items << self unless author.items.include?(self)
