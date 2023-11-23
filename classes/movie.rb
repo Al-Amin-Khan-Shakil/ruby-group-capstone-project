@@ -12,4 +12,11 @@ class Movie < Item
   def can_be_archived?
     super || publish_date
   end
+
+  def to_json(option = {})
+    {
+      silet: @silet
+      publish_date: @publish_date
+    }.to_json(option)
+  end
 end

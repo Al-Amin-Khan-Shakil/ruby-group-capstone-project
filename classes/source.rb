@@ -15,4 +15,10 @@ class Source
     @items << item
     item.source = self
   end
+
+  def to_json(option = {})
+    {
+      name: @name
+    }.to_json(option)
+  end
 end
