@@ -1,4 +1,4 @@
-require_relative 'classes/movie'
+require_relative '../classes/movie'
 require 'date'
 
 describe Movie do

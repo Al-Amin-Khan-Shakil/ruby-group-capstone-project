@@ -62,7 +62,7 @@ def list_movies
   @games.each_with_index do |movie, index|
     print "Movie #{index + 1} - "
     print "release_date: #{movie.release_date},"
-    print "Last Played at: #{movie.last_time_at}\n"
+    print "last_watched_at: #{movie.last_watched_at}\n"
   end
 end
 
@@ -87,7 +87,6 @@ def save_movies
     end
     file.write(JSON.generate(data))
   end
-end
 
 # start of load methed for movie
 def load_movie
