@@ -15,6 +15,7 @@ def prompt(app)
       break
     end
 
+
     actions(input_number, app)
   end
 end
@@ -39,7 +40,6 @@ def actions(input_number, app)
   end
 end
 
-# team, below is possible user's list
 def display_options
   puts 'Please enter or input any option [1-10]'
   puts '1. - List all books'
