@@ -1,0 +1,14 @@
+[
+  {
+    "type": "Game",
+    "publish_date": "1999-12-12",
+    "multiplayer": true,
+    "last_played_at": "2000-11-11"
+  },
+  {
+    "type": "Game",
+    "publish_date": "1995-11-22",
+    "multiplayer": true,
+    "last_played_at": "2000-11-22"
+  }
+]

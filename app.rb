@@ -1,15 +1,29 @@
+require_relative 'classes/game'
+require_relative 'classes/author'
+require_relative 'classes/music'
+require_relative 'classes/genre'
 require_relative 'classes/book'
 require_relative 'classes/label'
 require_relative 'data_manager'
-require_relative 'classes/music'
-require_relative 'classes/genre'
+require './modules/author_module'
+require './modules/game_module'
+require './modules/storage'
+require 'json'
 
 class App
+  include GameModule
+  include AuthorModule
+  include StorageModule
+  attr_reader :labels, :games, :authors
+
   def initialize
     @books = DataManager.load_books
     @labels = DataManager.load_labels
     @album = DataManager.load_album
     @genre = DataManager.load_genre
+    prep_for_storage
+    @games = load_games
+    @authors = load_authors
   end
 
   def list_books
@@ -17,7 +31,8 @@ class App
       puts 'There is no book in your collection'
     else
       @books.each_with_index do |book, index|
-        puts "#{index}. Publish date:#{book.publish_date} Publisher: #{book.publisher} Cover-state: #{book.cover_state}"
+        print "Publish date: #{book.publish_date} Publisher: #{book.publisher} Cover-state: #{book.cover_state} "
+        print "Book-title: #{@labels[index].title}\n"
       end
     end
     puts
@@ -54,7 +69,7 @@ class App
     DataManager.save_label(@labels)
     puts 'Book added successfully'
   end
-
+  
   def list_album
     if @album.empty?
       puts 'There are no albums saved currently'
@@ -92,5 +107,14 @@ class App
     DataManager.save_album(@album)
     DataManager.save_genre(@genre)
     puts 'Album added successfully'
+  end
+  def prep_for_storage
+    create_file('games')
+    create_file('authors')
+  end
+    
+  def save_data
+    save_to_file(@games.map(&:to_hash), 'games')
+    save_to_file(@authors.map(&:to_hash), 'authors')
   end
 end
