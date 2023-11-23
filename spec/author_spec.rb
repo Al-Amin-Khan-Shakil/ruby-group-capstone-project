@@ -1,7 +1,6 @@
 require_relative '../classes/item'
 require_relative '../classes/author'
 
-
 RSpec.describe Author do
   let(:author) { Author.new(first_name: 'Stephen', last_name: 'King') }
   let(:item) { Item.new(publish_date: Date.new(2020, 1, 1)) }
