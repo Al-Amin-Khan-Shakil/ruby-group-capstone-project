@@ -31,4 +31,21 @@ module AuthorModule
   def find_author(id)
     @authors.find { |author| author.id == id }
   end
+
+  def load_authors
+    authors = []
+    data = load_from_file('authors')
+
+    data.map do |items|
+      author = Author.new(items['first_name'], items['last_name'])
+      items['items'].map do |item|
+        if item['type'].include?('Game')
+          game = Game.new(item['publish_date'], item['multiplayer'], item['last_played_at'])
+          author.add_item(game)
+        end
+      end
+      authors << author
+    end
+    authors
+  end
 end
