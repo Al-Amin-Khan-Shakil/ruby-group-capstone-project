@@ -1,6 +1,6 @@
-require_relative '../music'
-require_relative '../genre'
-require_relative '../item'
+require_relative '../classes/music'
+require_relative '../classes/genre'
+require_relative '../classes/item'
 
 describe MusicAlbum do
   let(:genre) { Genre.new(1, 'Rock') }
