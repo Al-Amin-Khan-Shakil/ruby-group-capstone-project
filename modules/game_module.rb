@@ -29,6 +29,7 @@ module GameModule
     author.add_item(game)
     @games << game
     puts "\e[32mGame added successfully!\e[0m"
+
   end
 
   def game_author
