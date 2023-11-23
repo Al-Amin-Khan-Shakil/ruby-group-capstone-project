@@ -1,11 +1,18 @@
-class Genre < Item
-    @name = name
+require_relative 'item'
 
-    def add_item(item)
-        @item = item
-    end
+class Genre
+  attr_accessor :id, :name
+  attr_reader :items
 
-    private
-    @items = items
+  def initialize(id, name)
     @id = id
+    @name = name
+    @items = []
+  end
+
+  # setter method to add an item
+  def add_item(item)
+    item.genre = self
+    @items << item
+  end
 end
