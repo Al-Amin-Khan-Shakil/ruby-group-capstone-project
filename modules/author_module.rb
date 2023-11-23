@@ -18,16 +18,17 @@ module AuthorModule
   def add_author
     puts "\nAdd author details:"
     print 'First name: '
-    first_name = empty?(gets.chomp.to_s)
+    first_name = gets.chomp.to_s
+    first_name = 'Unknown' if first_name.empty?
     print 'Last name: '
-    last_name = empty?(gets.chomp.to_s)
-    author = Author.new(first_name, last_name)
+    last_name = gets.chomp.to_s
+    last_name = 'Unknown' if last_name.empty?
+    author = Author.new(first_name: first_name, last_name: last_name)
     @authors << author
     puts "\e[32mAuthor added successfully!\e[0m"
   end
 
   def find_author(id)
-    authors = @authors.select { |author| author.id == id }
-    authors.first
+    @authors.find { |author| author.id == id }
   end
 end
