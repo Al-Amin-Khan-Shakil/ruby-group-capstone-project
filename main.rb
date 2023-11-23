@@ -10,11 +10,9 @@ def prompt(app)
   loop do
     display_options
     input_number = gets.chomp.to_i
-
     if input_number == 10
-      app.save_data
       puts "\e[31mThank you for using this app! ♥️ \e[0m"
-      exit
+      break
     end
 
     actions(input_number, app)
@@ -35,6 +33,7 @@ def actions(input_number, app)
     app.add_new_book
   when 9
     app.add_game
+    app.save_data
   else
     puts 'Invalid option, try again'
   end
