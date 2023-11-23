@@ -16,4 +16,11 @@ class Label
     @items << item
     item.label = self
   end
+
+  def to_json(option = {})
+    {
+      title: @title,
+      color: @color
+    }.to_json(option)
+  end
 end
