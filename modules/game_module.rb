@@ -48,8 +48,8 @@ module GameModule
 
   def load_games
     load_from_file('games').map do |game|
-      Game.new(publish_date: game['publish_date'], multiplayer: game['multiplayer'], last_played_at: game['last_played_at'])
+      Game.new(publish_date: game['publish_date'], multiplayer: game['multiplayer'],
+               last_played_at: game['last_played_at'])
     end
   end
-
 end

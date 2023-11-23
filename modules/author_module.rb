@@ -39,10 +39,11 @@ module AuthorModule
     data.map do |items|
       author = Author.new(first_name: items['first_name'], last_name: items['last_name'])
       items['items'].map do |item|
-        if item['type'].include?('Game')
-          game = Game.new(publish_date: item['publish_date'], multiplayer: item['multiplayer'], last_played_at: item['last_played_at'])
-          author.add_item(game)
-        end
+        next unless item['type'].include?('Game')
+
+        game = Game.new(publish_date: item['publish_date'], multiplayer: item['multiplayer'],
+                        last_played_at: item['last_played_at'])
+        author.add_item(game)
       end
       authors << author
     end
