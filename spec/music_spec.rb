@@ -3,12 +3,10 @@ require_relative '../classes/genre'
 require_relative '../classes/item'
 
 describe MusicAlbum do
-  let(:genre) { Genre.new(1, 'Rock') }
+  let(:genre) { Genre.new('Rock') }
+  
   let(:music_album) do
     MusicAlbum.new(
-      id: 1,
-      genre: genre,
-      artist: 'Artist Name',
       on_spotify: true,
       publish_date: Time.now
     )
