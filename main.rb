@@ -10,11 +10,11 @@ def prompt(app)
   loop do
     display_options
     input_number = gets.chomp.to_i
+
     if input_number == 10
       puts "\e[31mThank you for using this app! ♥️ \e[0m"
       break
     end
-
 
     actions(input_number, app)
   end
@@ -24,14 +24,20 @@ def actions(input_number, app)
   case input_number
   when 1
     app.list_books
+  when 2
+    app.list_album
   when 3
     app.list_games
+  when 4
+    app.list_genre
   when 5
     app.list_labels
   when 6
     app.list_authors
   when 7
     app.add_new_book
+  when 8
+    app.add_new_album
   when 9
     app.add_game
     app.save_data

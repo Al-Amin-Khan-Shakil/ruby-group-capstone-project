@@ -38,4 +38,42 @@ class DataManager
       []
     end
   end
+
+  def self.save_album(album)
+    if album.any?
+      File.write('./data/album.json', JSON.dump(album))
+    else
+      File.write('./date/album.json', JSON.dump([]))
+    end
+  end
+
+  def self.save_genre(genre)
+    if genre.any?
+      File.write('./data/genre.json', JSON.dump(genre))
+    else
+      File.write('./date/genre.json', JSON.dump([]))
+    end
+  end
+
+  def self.load_genre
+    if File.exist?('./data/genre.json')
+      JSON.parse(File.read('./data/genre.json')).map do |genre|
+        Genre.new(genre['name'])
+      end
+    else
+      File.write('./data/genre.json', JSON.dump([]))
+      []
+    end
+  end
+
+  def self.load_album
+    if File.exist?('./data/album.json')
+      JSON.parse(File.read('./data/album.json')).map do |album|
+      MusicAlbum.new(album['on_spotify'], album['publish_date'])
+      end
+    else
+      File.write('./data/album.json', JSON.dump([]))
+      []
+    end
+  end
 end
