@@ -10,7 +10,11 @@ def prompt(app)
   loop do
     display_options
     input_number = gets.chomp.to_i
-    break if input_number == 10
+    if input_number == 10
+      app.save_data
+      puts "\e[31mThank you for using this app! ♥️ \e[0m"
+      break
+    end
 
     actions(input_number, app)
   end
