@@ -3,7 +3,7 @@ require 'date'
 
 class Item
   attr_accessor :publish_date
-  attr_reader :id, :archived, :label
+  attr_reader :id, :archived, :label, :genre
 
   def initialize(publish_date: nil, archived: false)
     @id = SecureRandom.uuid
@@ -14,6 +14,11 @@ class Item
   def label=(label)
     @label = label
     label.items << self unless label.items.include?(self)
+  end
+
+  def genre=(genre)
+    @genre = genre
+    genre.items << self unless genre.items.include?(self)
   end
 
   def move_to_archive
