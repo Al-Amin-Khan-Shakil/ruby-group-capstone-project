@@ -4,6 +4,8 @@ require_relative 'classes/music'
 require_relative 'classes/genre'
 require_relative 'classes/book'
 require_relative 'classes/label'
+require_relative 'classes/movie'
+require_relative 'classes/source'
 require_relative 'data_manager'
 require './modules/author_module'
 require './modules/game_module'
@@ -21,6 +23,8 @@ class App
     @labels = DataManager.load_labels
     @album = DataManager.load_album
     @genre = DataManager.load_genre
+    @movies = DataManager.load_movie
+    @sources = DataManager.load_source
     prep_for_storage
     @games = load_games
     @authors = load_authors
@@ -117,5 +121,44 @@ class App
   def save_data
     save_to_file(@games.map(&:to_hash), 'games')
     save_to_file(@authors.map(&:to_hash), 'authors')
+  end
+
+  def list_movies
+    if @movies.empty?
+      puts 'There is no movie in your collection'
+    else
+      @movies.each_with_index do |movie, _index|
+        puts "Publish date: #{movie.publish_date} Is silet: #{movie.silet}"
+      end
+    end
+    puts
+  end
+
+  def list_source
+    if @sources.empty?
+      puts 'There is no sources in your collection'
+    else
+      @sources.each_with_index do |_sources, index|
+        puts "#{index}. Source-name: #{source.name}"
+      end
+    end
+    puts
+  end
+
+  def add_new_movie
+    puts 'Published date (dd/mm/yy): '
+    publish_date = Date.parse(gets.chomp)
+    puts 'enter Y if it\'s silet or N if it\'s not'
+    silet = gets.chomp.downcase == 'y'
+    puts 'Source-name: '
+    name = gets.chomp
+    new_movie = Movie.new(silet, publish_date)
+    new_source = Source.new(name)
+    new_source.add_item(new_movie)
+    @movies << new_movie
+    @sources << new_source
+    DataManager.save_movie(@movies)
+    DataManager.save_source(@sources)
+    puts 'Book added successfully'
   end
 end

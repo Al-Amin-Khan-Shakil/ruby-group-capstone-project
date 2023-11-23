@@ -76,4 +76,42 @@ class DataManager
       []
     end
   end
+
+  def self.save_movie(movies)
+    if movies.any?
+      File.write('./data/movies.json', JSON.dump(movies))
+    else
+      File.write('./date/movies.json', JSON.dump([]))
+    end
+  end
+
+  def self.save_source(sources)
+    if sources.any?
+      File.write('./data/sources.json', JSON.dump(sources))
+    else
+      File.write('./date/sources.json', JSON.dump([]))
+    end
+  end
+
+  def self.load_source
+    if File.exist?('./data/sources.json')
+      JSON.parse(File.read('./data/sources.json')).map do |source|
+        Source.new(source['name'])
+      end
+    else
+      File.write('./data/sources.json', JSON.dump([]))
+      []
+    end
+  end
+
+  def self.load_movie
+    if File.exist?('./data/movies.json')
+      JSON.parse(File.read('./data/movies.json')).map do |movie|
+        Movie.new(movie['silet'], movie['publish_date'])
+      end
+    else
+      File.write('./data/movies.json', JSON.dump([]))
+      []
+    end
+  end
 end
