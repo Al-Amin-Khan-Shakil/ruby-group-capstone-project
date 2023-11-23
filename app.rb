@@ -138,7 +138,7 @@ class App
     if @sources.empty?
       puts 'There is no sources in your collection'
     else
-      @sources.each_with_index do |_sources, index|
+      @sources.each_with_index do |source, index|
         puts "#{index}. Source-name: #{source.name}"
       end
     end
