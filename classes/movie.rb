@@ -11,6 +11,6 @@ class Movie < Item
   end
 
   def can_be_archived?
-    super && @silet
+    super || (@silet == 'bad')
   end
 end
