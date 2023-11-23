@@ -15,7 +15,7 @@ class Movie < Item
 
   def to_json(option = {})
     {
-      silet: @silet
+      silet: @silet,
       publish_date: @publish_date
     }.to_json(option)
   end

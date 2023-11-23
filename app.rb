@@ -127,7 +127,7 @@ class App
     if @movies.empty?
       puts 'There is no movie in your collection'
     else
-      @movies.each_with_index do |movie, index|
+      @movies.each_with_index do |movie, _index|
         puts "Publish date: #{movie.publish_date} Is silet: #{movie.silet}"
       end
     end
@@ -138,7 +138,7 @@ class App
     if @sources.empty?
       puts 'There is no sources in your collection'
     else
-      @sources.each_with_index do |sources, index|
+      @sources.each_with_index do |_sources, index|
         puts "#{index}. Source-name: #{source.name}"
       end
     end
