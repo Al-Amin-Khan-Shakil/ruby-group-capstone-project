@@ -13,7 +13,8 @@ class App
       puts 'There is no book in your collection'
     else
       @books.each_with_index do |book, index|
-        puts "#{index}. Publish date:#{book.publish_date} Publisher: #{book.publisher} Cover-state: #{book.cover_state}"
+        print "#{index}. Publish date:#{book.publish_date} Publisher: #{book.publisher} Cover-state: #{book.cover_state} "
+        print "Book-title: #{@labels[index].title}\n"
       end
     end
     puts
