@@ -29,7 +29,6 @@ module GameModule
     author.add_item(game)
     @games << game
     puts "\e[32mGame added successfully!\e[0m"
-
   end
 
   def game_author
@@ -48,6 +47,9 @@ module GameModule
   end
 
   def load_games
-    load_from_file('games').map { |game| Game.new(game['publish_date'], game['multiplayer'], game['last_played_at']) }
+    load_from_file('games').map do |game|
+      Game.new(publish_date: game['publish_date'], multiplayer: game['multiplayer'], last_played_at: game['last_played_at'])
+    end
   end
+
 end

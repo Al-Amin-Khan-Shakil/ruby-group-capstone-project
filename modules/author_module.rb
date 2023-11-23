@@ -37,10 +37,10 @@ module AuthorModule
     data = load_from_file('authors')
 
     data.map do |items|
-      author = Author.new(items['first_name'], items['last_name'])
+      author = Author.new(first_name: items['first_name'], last_name: items['last_name'])
       items['items'].map do |item|
         if item['type'].include?('Game')
-          game = Game.new(item['publish_date'], item['multiplayer'], item['last_played_at'])
+          game = Game.new(publish_date: item['publish_date'], multiplayer: item['multiplayer'], last_played_at: item['last_played_at'])
           author.add_item(game)
         end
       end
