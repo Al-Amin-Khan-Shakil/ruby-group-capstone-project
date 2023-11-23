@@ -2,13 +2,14 @@ require 'securerandom'
 require 'date'
 
 class Item
-  attr_accessor :publish_date
+  attr_accessor :publish_date, :author
   attr_reader :id, :archived, :label
 
   def initialize(publish_date: nil, archived: false)
     @id = SecureRandom.uuid
     @publish_date = publish_date
     @archived = archived
+    @author = []
   end
 
   def label=(label)
