@@ -22,6 +22,8 @@ def actions(input_number, app)
     app.list_books
   when 2
     app.list_album
+  when 4
+    app.list_genre
   when 5
     app.list_labels
   when 7

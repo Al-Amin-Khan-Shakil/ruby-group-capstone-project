@@ -2,6 +2,7 @@ require_relative 'classes/book'
 require_relative 'classes/label'
 require_relative 'data_manager'
 require_relative 'classes/music'
+require_relative 'classes/genre'
 
 class App
   def initialize
@@ -59,7 +60,18 @@ class App
       puts 'There are no albums saved currently'
     else
       @album.each_with_index do |album, index|
-        puts "#{index}. Album: #{album}"
+        puts "#{index}. On Spotify? : #{album.on_spotify} Date: #{album.publish_date}"
+      end
+    end
+    puts
+  end
+
+  def list_genre
+    if @genre.empty?
+      puts 'There are no genres saved currently'
+    else
+      @genre.each_with_index do |genre, index|
+        puts "#{index}. Genre: #{genre.name}"
       end
     end
     puts
@@ -70,9 +82,13 @@ class App
     album_date = gets.chomp
     puts 'enter Y if it\'s on spotify or N if it\'s not'
     on_spotify = gets.chomp.downcase == 'y'
+    puts 'Enter a genre:'
+    genre = gets.chomp
     new_album = MusicAlbum.new(on_spotify:on_spotify, publish_date:album_date)
-    new_album.add_item(new_album)
+    new_genre = Genre.new(genre)
+    new_genre.add_item(new_album)
     @album << new_album
+    @genre << new_genre
 
     puts 'Album added successfully'
   end
