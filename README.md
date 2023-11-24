@@ -16,9 +16,9 @@
 - [🙏 Acknowledgements](#acknowledgements)
 - [📝 License](#license)
 
-# 📖 Ruby Capstone Project<a name="about-project"></a>
+# 📖 Ruby Group Capstone Project<a name="about-project"></a>
 
-**Ruby Capstone Project - Catalog of my things** In this project, we created a console app that will help you to keep a record of different types of things you own: books, music albums, movies, and games. Everything will be based on the given UML class diagram. The data will be stored in JSON files but we will also prepare a database with tables structure analogical to our program's class structure.
+**Ruby Group Capstone Project - Catalog of my things** In this project, we created a console app that will help you to keep a record of different types of things you own: books, music albums, movies, and games. Everything will be based on the given UML class diagram. The data will be stored in JSON files but we will also prepare a database with tables structure analogical to our program's class structure.
 
 ## 🛠 Built With <a name="built-with"></a>
 
@@ -73,6 +73,20 @@ Install this project with:
 ```
 cd Ruby-Group-Capstone
 gem install
+```
+
+### Testing
+
+Install Rspec using:
+
+```
+gem install rspec
+```
+
+Then run this command in the root folder:
+
+```
+rspec
 ```
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
