@@ -6,7 +6,9 @@
     - [Key Features](#key-features)
   - [🎥 Presentation](#video-link)
 - [💻 Getting Started](#getting-started)
-  - [Setup](#setup)
+  - [Setup](#setupping)
+  - [Install](#installing)
+  - [Testing](#testing)
   - [Prerequisites](#prerequisites)
   - [Create database](#create-database)
 - [👥 Authors](#authors)
@@ -58,7 +60,7 @@ In order to run this project you need:
 - [Ruby](https://www.ruby-lang.org/en/) installed and running.
 - You should be able to use [IRB](https://en.wikipedia.org/wiki/Ruby_(programming_language)#Features).
 
-### Setup
+### Setup <a name="setupping"></a>
 
 Clone this repository to your desired folder:
 
@@ -66,7 +68,7 @@ Clone this repository to your desired folder:
 git clone git@github.com:Al-Amin-Khan-Shakil/ruby-group-capstone-project.git
 ```
 
-### Install
+### Install <a name="installing"></a>
 
 Install this project with:
 
@@ -75,7 +77,7 @@ cd Ruby-Group-Capstone
 gem install
 ```
 
-### Testing
+### Testing <a name="testing"></a>
 
 Install Rspec using:
 
@@ -118,8 +120,7 @@ rspec
 
 ## 🔭 Future Features <a name="future-features"></a>
 
-- [ ] **Add new source**
-- [ ] **Add new movie**
+**Adding streaming feature**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -145,6 +146,6 @@ If you like this project, please consider giving it a star.
 
 ## 📝 License <a name="license"></a>
 
-This project is [MIT](https://github.com/Al-Amin-Khan-Shakil/ruby-group-capstone-project/blob/467cd2c853f0507f04952ca947c2b7acb932a4ce/LICENSE) licensed.
+This project is [MIT](./LICENSE) licensed.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
