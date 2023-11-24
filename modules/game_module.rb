@@ -1,6 +1,5 @@
 require 'pry'
 module GameModule
-
   def list_games
     if @games.empty?
       puts "\n\e[31mNo games available!\e[0m\n"
