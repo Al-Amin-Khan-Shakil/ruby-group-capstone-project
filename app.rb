@@ -11,6 +11,7 @@ require './modules/author_module'
 require './modules/game_module'
 require './modules/storage'
 require 'json'
+require 'date'
 
 class App
   include GameModule
@@ -28,6 +29,23 @@ class App
     prep_for_storage
     @games = load_games
     @authors = load_authors
+  end
+
+  def date_valid?(date)
+    format = '%d/%m/%Y'
+    DateTime.strptime(date, format)
+  rescue ArgumentError
+    'Invalid date format'
+  end
+
+  def published_date
+    puts 'Published date (dd/mm/yyyy): '
+    publish_date = gets.chomp
+    while date_valid?(publish_date) == 'Invalid date format'
+      puts 'Invalid date format'
+      puts 'Published date (dd/mm/yyyy): '
+      publish_date = gets.chomp
+    end
   end
 
   def list_books
@@ -56,8 +74,7 @@ class App
   def add_new_book
     puts 'Title of book: '
     title = gets.chomp
-    puts 'Published date (dd/mm/yy): '
-    publish_date = Date.parse(gets.chomp)
+    published_date
     puts 'Publisher: '
     publisher = gets.chomp
     puts 'Color of cover: '
@@ -97,13 +114,12 @@ class App
   end
 
   def add_new_album
-    puts 'Enter a date: DD/MM/YYYY'
-    album_date = gets.chomp
+    published_date
     puts 'enter Y if it\'s on spotify or N if it\'s not'
     on_spotify = gets.chomp.downcase == 'y'
     puts 'Enter a genre:'
     genre = gets.chomp
-    new_album = MusicAlbum.new(on_spotify, album_date)
+    new_album = MusicAlbum.new(on_spotify, published_date)
     new_genre = Genre.new(genre)
     new_genre.add_item(new_album)
     @album << new_album
@@ -146,8 +162,7 @@ class App
   end
 
   def add_new_movie
-    puts 'Published date (dd/mm/yy): '
-    publish_date = Date.parse(gets.chomp)
+    published_date
     puts 'enter Y if it\'s silet or N if it\'s not'
     silet = gets.chomp.downcase == 'y'
     puts 'Source-name: '
