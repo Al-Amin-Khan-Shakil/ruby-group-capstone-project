@@ -26,6 +26,7 @@
 
 <ul>
     <li><a href="https://www.ruby-lang.org/en/">Ruby</a></li>
+    <li><a href="https://rspec.info/">RSpec</a></li> 
     <li><a href="https://www.postgresql.org/">PostgreSQL</a></li>
 </ul>
 
