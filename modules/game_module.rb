@@ -1,4 +1,6 @@
+require 'pry'
 module GameModule
+
   def list_games
     if @games.empty?
       puts "\n\e[31mNo games available!\e[0m\n"
@@ -16,14 +18,23 @@ module GameModule
     end
   end
 
+  def last_played
+    puts 'Last played at (dd/mm/yy): '
+    last_played_at = gets.chomp
+    while date_valid?(last_played_at) == 'Invalid date format'
+      puts 'Invalid date format'
+      puts 'Last played at (dd/mm/yy): '
+      last_played_at = gets.chomp
+    end
+    last_played_at
+  end
+
   def add_game()
     puts "\nAdd a game:"
-    puts 'Published date (dd/mm/yy): '
-    publish_date = Date.parse(gets.chomp)
+    publish_date = published_date
     print 'Multiplayer [Y/N]: '
     multiplayer = gets.chomp.downcase == 'y'
-    print 'Last played at (dd/mm/yy): '
-    last_played_at = Date.parse(gets.chomp)
+    last_played_at = last_played
     game = Game.new(publish_date: publish_date, multiplayer: multiplayer, last_played_at: last_played_at)
     author = game_author
     author.add_item(game)

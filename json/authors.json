@@ -1,33 +1,14 @@
 [
   {
-    "id": 777,
+    "id": 368,
     "first_name": "ben",
-    "last_name": "zamin",
+    "last_name": "ben2",
     "items": [
       {
         "type": "Game",
-        "publish_date": "1999-12-12",
+        "publish_date": "12/12/16464544",
         "multiplayer": true,
-        "last_played_at": "2000-11-11"
-      },
-      {
-        "type": "Game",
-        "publish_date": "1995-11-22",
-        "multiplayer": true,
-        "last_played_at": "2000-11-22"
-      }
-    ]
-  },
-  {
-    "id": 514,
-    "first_name": "ben",
-    "last_name": "ben",
-    "items": [
-      {
-        "type": "Game",
-        "publish_date": "1998-12-12",
-        "multiplayer": false,
-        "last_played_at": "1997-12-12"
+        "last_played_at": "12/12/1980"
       }
     ]
   }

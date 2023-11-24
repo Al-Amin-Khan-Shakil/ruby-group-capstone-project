@@ -46,6 +46,7 @@ class App
       puts 'Published date (dd/mm/yyyy): '
       publish_date = gets.chomp
     end
+    publish_date
   end
 
   def list_books
@@ -74,7 +75,7 @@ class App
   def add_new_book
     puts 'Title of book: '
     title = gets.chomp
-    published_date
+    publish_date = published_date
     puts 'Publisher: '
     publisher = gets.chomp
     puts 'Color of cover: '
@@ -114,12 +115,12 @@ class App
   end
 
   def add_new_album
-    published_date
+    publish_date = published_date
     puts 'enter Y if it\'s on spotify or N if it\'s not'
     on_spotify = gets.chomp.downcase == 'y'
     puts 'Enter a genre:'
     genre = gets.chomp
-    new_album = MusicAlbum.new(on_spotify, published_date)
+    new_album = MusicAlbum.new(on_spotify, publish_date)
     new_genre = Genre.new(genre)
     new_genre.add_item(new_album)
     @album << new_album
@@ -162,7 +163,7 @@ class App
   end
 
   def add_new_movie
-    published_date
+    publish_date = published_date
     puts 'enter Y if it\'s silet or N if it\'s not'
     silet = gets.chomp.downcase == 'y'
     puts 'Source-name: '
