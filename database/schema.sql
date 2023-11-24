@@ -49,13 +49,11 @@ CREATE TABLE authors (
     id  INT GENERATED ALWAYS AS IDENTITY,
     first_name VARCHAR(100),
     last_name VARCHAR(100),
-    PRIMARY KEY(id)
-    FOREIGN KEY(id) REFERENCES item(id)
+    PRIMARY KEY(id),
 );
 
 CREATE TABLE source (
     id  INT GENERATED ALWAYS AS IDENTITY,
     name VARCHAR(100),
     PRIMARY KEY(id)
-    FOREIGN KEY(id) REFERENCES item(id)
 );
