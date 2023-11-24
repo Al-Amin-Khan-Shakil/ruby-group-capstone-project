@@ -159,6 +159,6 @@ class App
     @sources << new_source
     DataManager.save_movie(@movies)
     DataManager.save_source(@sources)
-    puts 'Book added successfully'
+    puts 'Movie added successfully'
   end
 end
